@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
 
-gem 'berkshelf'
+gem 'chef-metal',         github: 'opscode/chef-metal'
+gem 'berkshelf',            github: 'berkshelf/berkshelf'
+gem 'chef-metal-vagrant', github: 'opscode/chef-metal-vagrant'
+gem 'cheffish',           github: 'opscode/cheffish'
 
 # Uncomment these lines if you want to live on the Edge:
 #
@@ -14,5 +17,9 @@ gem 'berkshelf'
 #   gem "vagrant-omnibus", github: "schisamo/vagrant-omnibus"
 # end
 
-gem 'test-kitchen'
-gem 'kitchen-vagrant'
+#gem 'test-kitchen'
+#gem 'kitchen-vagrant'
+
+# For testing chef-metal from git master
+# # gem 'chef-metal', :git => 'git://github.com/opscode/chef-metal.git'
+
