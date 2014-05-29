@@ -1,4 +1,6 @@
-# bar-cookbook
+# sandbox/playground for chef-metal usage
 
-TODO: Enter the cookbook description here.
+# Usage
 
+git clone
+rake
