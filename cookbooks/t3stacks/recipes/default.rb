@@ -28,16 +28,17 @@ chef_node "forge" do
     action :create
 end
 
-#chef_environment "pre-production" do
-#    action :create
-#end
+chef_environment "pre-production" do
+    action :create
+end
 
 machine 'forge' do
     action [:converge]
     chef_environment = "pre-production"
-    attribute "xxxx", "tada"
-    role 'debian'
-    role 'site-forgetypo3org'
+    attribute 'site-forgetypo3org', {ssl_certificate: 'wildcard.vagrant'}
+    #attribute "xxxx", "tada"
+    #role 'debian'
+    recipe 'site-forgetypo3org'
 end
 
 #machine 'mq' do
