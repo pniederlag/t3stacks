@@ -1,3 +1,8 @@
 source "https://api.berkshelf.com"
 
-metadata
+#metadata
+cookbook 'openssl'
+cookbook 'redmine', github: 'TYPO3-Cookbooks/redmine', branch: 'petern'
+cookbook 'nginx', github: 'TYPO3-Cookbooks/nginx'
+cookbook 'ssl_certificates', github: 'TYPO3-Cookbooks/ssl_certificates'
+cookbook 'site-forgetypo3org', github: 'TYPO3-Cookbooks/site-forgetypo3org'
