@@ -8,9 +8,9 @@
 require 'chef_metal'
 require 'chef_metal_vagrant'
 
-def chef_repo_path
-   "/srv/fileserver/projekte/t3-team-server/chef/"
-end
+#def chef_repo_path
+#   "/srv/fileserver/projekte/t3-team-server/chef/"
+#end
 
 # Set up a vagrant cluster (place for vms) in ~/machinetest
 vagrant_cluster "#{ENV['HOME']}/t3s-metaltest"
