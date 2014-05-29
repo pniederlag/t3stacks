@@ -17,5 +17,9 @@ bin/*
 .bundle/*
 vendor/*
 
+nodes/
+clients/
+environments/
+
 .kitchen/
 .kitchen.local.yml
