@@ -1,6 +1,19 @@
-# sandbox/playground for chef-metal usage
+sandbox/playground for chef-metal usage
+=========================================
 
-# Usage
+Highly experimental!
 
-git clone
-rake
+Usage
+-----------------------------------------
+
+* git clone
+* rake
+
+Misc
+-----------------------------------------
+
+Heavily inspired by chef-metal and ec-metal repos
+
+rake default task will pull dependencies by running bundler for gems and berks for cookbooks
+
+
