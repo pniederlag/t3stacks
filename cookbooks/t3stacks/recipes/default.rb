@@ -25,6 +25,8 @@ end
 
 chef_node "forge" do
     chef_environment "pre-production"
+    # dev_mode is for chef-vault plain text databags
+    attribute 'dev_mode', true
     action :create
 end
 
