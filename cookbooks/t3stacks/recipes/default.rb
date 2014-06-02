@@ -6,23 +6,16 @@
 #
 # 
 require 'chef_metal'
-require 'chef_metal_vagrant'
 
 #def chef_repo_path
 #   "/srv/fileserver/projekte/t3-team-server/chef/"
 #end
 
+provider = node['t3stacks']['provider']
+include_recipe("t3stacks::#{provider}")
+
 # Set up a vagrant cluster (place for vms) in ~/machinetest
 #puts config
-vagrant_cluster node['t3stacks']['vms_dir']
-
-# set vagrant box
-vagrant_box 'debian-7-amd64' do
-    url 'http://boxes.datenbetrieb.de/debian-7-amd64.box'
-    #  machine_options 'vagrant_config' => <<EOM
-    #     config.vm.synced_folder (ENV['SRC_DIR'] || "#{ENV['HOME']}/oc/code/opscode"), "/mnt/host_src"
-    #  #EOM
-end
 
 chef_node "forge" do
     chef_environment "pre-production"

@@ -1,29 +1,35 @@
 require 'cheffish'
 require 'chef_metal_vagrant'
 
-repo_path = node['t3stacks']['repo_path']
+
 vms_dir = node['t3stacks']['vms_dir']
 
+# creat vms_dir and assign to vagrant_cluster
 directory vms_dir
 vagrant_cluster vms_dir
 
-directory repo_path
-with_chef_local_server :chef_repo_path => repo_path,
-  :cookbook_path => [ File.join(repo_path, 'cookbooks'),
-    File.join(repo_path, 'vendor', 'cookbooks') ]
-
-vagrant_box node['t3stacks']['vagrant']['box'] do
-  url node['t3stacks']['vagrant']['box_url']
+# set vagrant box
+vagrant_box 'debian-7-amd64' do
+    url 'http://boxes.datenbetrieb.de/debian-7-amd64.box'
+    #  machine_options 'vagrant_config' => <<EOM
+    #     config.vm.synced_folder (ENV['SRC_DIR'] || "#{ENV['HOME']}/oc/code/opscode"), "/mnt/host_src"
+    #  #EOM
 end
 
+
+#directory repo_path
+#with_chef_local_server :chef_repo_path => repo_path,
+#  :cookbook_path => [ File.join(repo_path, 'cookbooks'),
+#    File.join(repo_path, 'vendor', 'cookbooks') ]
+
+
 # set provisioner options for all of our machines
-node['t3stacks']['vm_config']['backends'].merge(
-  node['t3stacks']['vm_config']['frontends']).each do |vmname, config|
+node['t3stacks']['machines'].each do |vmname, config|
 
-  local_provisioner_options = {
-    'vagrant_config' => VagrantConfigHelper.generate_vagrant_config(vmname, config, node)
-  }
+#  local_provisioner_options = {
+#    'vagrant_config' => VagrantConfigHelper.generate_vagrant_config(vmname, config, node)
+#  }
 
-  node.set['t3stacks']['provisioner_options'][vmname] = ChefMetal.enclosing_provisioner_options.merge(local_provisioner_options)
+#  node.set['t3stacks']['provisioner_options'][vmname] = ChefMetal.enclosing_provisioner_options.merge(local_provisioner_options)
 
 end
