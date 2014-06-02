@@ -69,16 +69,16 @@ end
 desc 'Add hosts entries to /etc/hosts'
 task :add_hosts do
   config = get_config
-  config = fog_populate_ips(config) if config['provider'] == 'ec2'
-  create_hosts_entries(config['layout'])
-  print_final_message(config, t3stacks_dir)
+  puts "@todo: hosts/dns management"
+  #create_hosts_entries(config['machines'])
+  #print_final_message(config, t3stacks_dir)
 end
 
 desc 'Remove hosts entries to /etc/hosts'
 task :remove_hosts do
   config = get_config
-  config = fog_populate_ips(config) if config['provider'] == 'ec2'
-  remove_hosts_entries(config['layout'])
+  puts "@todo: hosts/dns management"
+  #remove_hosts_entries(config['machines'])
 end
 
 task :cachedir do
