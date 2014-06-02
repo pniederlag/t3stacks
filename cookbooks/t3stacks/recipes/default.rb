@@ -13,7 +13,8 @@ require 'chef_metal_vagrant'
 #end
 
 # Set up a vagrant cluster (place for vms) in ~/machinetest
-vagrant_cluster "#{ENV['HOME']}/t3s-metaltest"
+#puts config
+vagrant_cluster node['t3stacks']['vms_dir']
 
 # set vagrant box
 vagrant_box 'debian-7-amd64' do
