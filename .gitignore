@@ -22,6 +22,7 @@ vendor/*
 nodes/
 clients/
 environments/
+vagrant_vms/
 
 .kitchen/
 .kitchen.local.yml
