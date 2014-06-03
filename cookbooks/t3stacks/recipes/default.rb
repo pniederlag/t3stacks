@@ -43,8 +43,8 @@ machine 'forge' do
           ]
       end
     EOM
-    attribute 'site-forgetypo3org', {ssl_certificate: 'wildcard.vagrant'}
-    attribute 'redmine', {hostname: 'forge.typo3.vagrant'}
+    attribute 'site-forgetypo3org', {ssl_certificate: 'wildcard.vagrant', sso_enabled: false}
+    attribute 'redmine', {hostname: 'forge.typo3.vagrant', database: {password: 'xxuendxuiendunie'}}
     #role 'debian'
     recipe 'site-forgetypo3org'
 end
