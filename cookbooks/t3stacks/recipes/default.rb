@@ -31,6 +31,18 @@ end
 machine 'forge' do
     action [:converge]
     chef_environment = "pre-production"
+    # @todo find a better place for vagrant specific config (use config/attributes)
+    add_machine_options :vagrant_options => {
+      'vm.hostname' => 'forge.typo3.vagrant',
+      }, :vagrant_config => <<-EOM
+      config.vm.network "private_network", ip: "33.33.10.5"
+      config.vm.provider 'virtualbox' do |v|
+          v.customize [
+            'modifyvm', :id,
+            '--name', "forge.typo3.org"
+          ]
+      end
+    EOM
     attribute 'site-forgetypo3org', {ssl_certificate: 'wildcard.vagrant'}
     attribute 'redmine', {hostname: 'forge.typo3.vagrant'}
     #role 'debian'
