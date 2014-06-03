@@ -5,6 +5,8 @@
 .*.sw[a-z]
 *.un~
 pkg/
+.buildpath
+.project
 
 # Berkshelf
 .vagrant
