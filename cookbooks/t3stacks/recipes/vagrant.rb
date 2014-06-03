@@ -11,9 +11,6 @@ vagrant_cluster vms_dir
 # set vagrant box
 vagrant_box 'debian-7-amd64' do
     url 'http://boxes.datenbetrieb.de/debian-7-amd64.box'
-    #  machine_options 'vagrant_config' => <<EOM
-    #     config.vm.synced_folder (ENV['SRC_DIR'] || "#{ENV['HOME']}/oc/code/opscode"), "/mnt/host_src"
-    #  #EOM
 end
 
 
