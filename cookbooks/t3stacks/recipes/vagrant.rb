@@ -22,11 +22,8 @@ end
 
 # set provisioner options for all of our machines
 node['t3stacks']['machines'].each do |vmname, config|
-
-#  local_provisioner_options = {
-#    'vagrant_config' => VagrantConfigHelper.generate_vagrant_config(vmname, config, node)
-#  }
-
-#  node.set['t3stacks']['provisioner_options'][vmname] = ChefMetal.enclosing_provisioner_options.merge(local_provisioner_options)
-
+  additional_vagrant_config = {
+    ':vagrant_config' => VagrantConfigHelper.generate_vagrant_config(vmname, config, node)
+  }
+  #node.set['t3stacks']['provisioner_options'][vmname] = run_context.chef_metal.current_machine_options.merge(additional_vagrant_config)
 end
