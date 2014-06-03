@@ -32,7 +32,7 @@ machine 'forge' do
     action [:converge]
     chef_environment = "pre-production"
     attribute 'site-forgetypo3org', {ssl_certificate: 'wildcard.vagrant'}
-    #attribute "xxxx", "tada"
+    attribute 'redmine', {hostname: 'forge.typo3.vagrant'}
     #role 'debian'
     recipe 'site-forgetypo3org'
 end
