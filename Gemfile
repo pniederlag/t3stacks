@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 
-gem 'chef-metal',         github: 'opscode/chef-metal'
-gem 'berkshelf',            github: 'berkshelf/berkshelf'
-gem 'chef-metal-vagrant', github: 'opscode/chef-metal-vagrant'
-gem 'cheffish',           github: 'opscode/cheffish'
+gem 'chef-metal',         :github => 'opscode/chef-metal', :tag => 'v0.11.beta.11'
+gem 'chef-metal-vagrant', :github => 'opscode/chef-metal-vagrant'
+gem 'berkshelf',            :github => 'berkshelf/berkshelf'
+gem 'cheffish',           :github => 'opscode/cheffish'
 
 # Uncomment these lines if you want to live on the Edge:
 #
