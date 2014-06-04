@@ -6,3 +6,10 @@ cache_type               'BasicFile'
 cache_options( :path => "#{ENV['HOME']}/.chef/checksums" )
 cookbook_path            [::File.join(current_dir, '..', 'cookbooks'), ::File.join(current_dir, '..', 'vendor/cookbooks')]
 verify_api_cert          true
+
+# profiles for chef-metal
+#profile 'xxxefault'
+#profiles {
+#    'default' => {
+#    }
+#}
