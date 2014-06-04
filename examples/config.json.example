@@ -1,0 +1,57 @@
+{
+  "machines": {
+    "forge": {
+      "hostname": "forge.typo3.vagrant",
+      "ipaddress": "10.4.17.5",
+      "run_list": ["site-forgetypo3org"],
+      "attributes": {
+        "site-forgetypo3org" : { 
+          "ssl_certificate": "wildcard.vagrant",
+          "sso_enabled": false,
+          "amqp" : {
+            "server" : "mq.typo3.vagrant"
+          }
+        },
+        "redmine" : {
+          "hostname" : "forge.typo3.vagrant",
+          "database" : {
+            "password" : "xxuendxuiendunie"
+          }
+        }
+      }
+    },
+    "mq": {
+      "hostname": "mq.typo3.vagrant",
+      "ipaddress": "10.4.17.6",
+      "run_list": ["site-mqtypo3org"],
+      "attributes": {
+        "site-mqtypo3org" : {
+          "hostname" : "mq.typo3.vagrant",
+          "proxy" : {
+            "hostname" : "mq.typo3.vagrant",
+            "ssl" : false
+          }
+        }
+      }
+    },
+    "review": {
+      "hostname": "review.typo3.vagrant",
+      "ipaddress": "10.4.17.7",
+      "run_list": ["site-reviewtypo3org"],
+      "attributes": {
+        "site-reviewtypo3org" : {
+          "amqp" : {
+            "server" : "mq.typo3.vagrant"
+          }
+        },
+        "gerrit" : {
+          "canonicalWebUrl" : "review.typo3.vagrant",
+          "ssl_certificate": "wildcard.vagrant",
+          "war" : {
+            "download_url" : "https://github.com/TYPO3/gerrit/releases/download/2.7-typo3-9-g77a0d5c/gerrit-2.7-typo3-9-g77a0d5c.war"
+          }
+        }
+      }
+    }
+  }
+}
