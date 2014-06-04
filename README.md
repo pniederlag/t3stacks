@@ -4,9 +4,9 @@ sandbox/playground for chef-metal usage
 Highly experimental! 
 default config will give you a local dev environment with three machines:
 
-* forge/redmine
-* review/gerrit
-* mq/rabbitmq message server
+* forge/redmine https://forge.typo3.vagrant
+* review/gerrit http://review.typo3.vagrant
+* mq/rabbitmq message server http://mq.typo3.vagrant
 
 tha machines are conneceted so you can test the mq broking
 
@@ -17,15 +17,17 @@ Usage
 * rake
 * add hostnames to your /etc/hosts (automation in preparation)
 
+```
    10.4.17.5      forge.typo3.vagrant
    10.4.17.6      mq.typo3.vagrant
    10.4.17.7      review.typo3.vagrant
-
+```
 
 ToDo/Known Problems
 -----------------------------------------
 
-[DONE] debian lsb package must be installed (otherwise node.lsb.name breaks!)
+* ssh/config required so berks can isolate the t3-gerrit cookbook from review.typo3.org with your credentials
+* [DONE] debian lsb package must be installed (otherwise node.lsb.name breaks!)
 
 
 Misc
