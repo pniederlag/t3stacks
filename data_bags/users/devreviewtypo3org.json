@@ -1,0 +1,17 @@
+{
+  "id": "devreviewtypo3org",
+  "groups": "",
+  "comment": "review.typo3.vagrant user",
+  "email": "",
+  "rabbitmq": {
+    "tag": "",
+    "rights": [
+      {
+        "vhost": "infrastructure_dev",
+        "conf":  "^org\\.typo3\\.(git|forge|review)\\..*",
+        "write": "^org\\.typo3\\.(git|forge|review)\\..*",
+        "read":  "^org\\.typo3\\.(git|forge|review)\\..*"
+      }
+    ]
+  }
+}
