@@ -13,9 +13,13 @@ tha machines are conneceted so you can test the mq broking
 Usage
 -----------------------------------------
 
-* git clone https://github.com/t3dev/t3stacks.git
-* rake
-* add hostnames to your /etc/hosts (automation in preparation)
+``` bash
+git clone https://github.com/t3dev/t3stacks.git
+cd t3stacks
+rake
+```
+
+add hostnames to your /etc/hosts (automation in preparation)
 
 ```
    10.4.17.5      forge.typo3.vagrant
