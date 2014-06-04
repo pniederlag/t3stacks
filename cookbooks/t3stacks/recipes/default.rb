@@ -14,49 +14,46 @@ require 'chef_metal'
 provider = node['t3stacks']['provider']
 include_recipe("t3stacks::#{provider}")
 
-# Set up a vagrant cluster (place for vms) in ~/machinetest
-#puts config
-
-chef_node "forge" do
-    chef_environment "pre-production"
-    # dev_mode is for chef-vault plain text databags
-    attribute 'dev_mode', true
-    action :create
-end
-
+# create environment
 chef_environment "pre-production" do
     action :create
 end
 
-machine 'forge' do
-    action [:converge]
-    chef_environment = "pre-production"
-    # @todo find a better place for vagrant specific config (use config/attributes)
-    add_machine_options :vagrant_options => {
-      'vm.hostname' => 'forge.typo3.vagrant',
-      }, :vagrant_config => <<-EOM
-      config.vm.network "private_network", ip: "33.33.10.5"
-      config.vm.provider 'virtualbox' do |v|
-          v.customize [
-            'modifyvm', :id,
-            '--name', "forge.typo3.org"
-          ]
+# run through machines and create nodes + machines
+node['t3stacks']['machines'].each do |name,config|
+  # create node
+  chef_node name do
+      chef_environment "pre-production"
+      # dev_mode is for chef-vault plain text databags
+      attribute 'dev_mode', true
+      action :create
+  end
+
+  # create machine
+  machine name do
+      action [:converge]
+      chef_environment = "pre-production"
+      # @todo handle other options like cpu/ram
+      add_machine_options :vagrant_options => {
+        'vm.hostname' => config[:hostname],
+        }, :vagrant_config => <<-EOM
+        config.vm.network "private_network", ip: "#{config[:ipaddress]}"
+        config.vm.provider 'virtualbox' do |v|
+            v.customize [
+              'modifyvm', :id,
+              '--name', "#{config[:hostname]}"
+            ]
+        end
+      EOM
+      # @todo attribute precedence? profiles for dev and live?
+      config[:attributes].each do |attribute_name, attribute_config|
+        attribute attribute_name, attribute_config
       end
-    EOM
-    attribute 'site-forgetypo3org', {ssl_certificate: 'wildcard.vagrant', sso_enabled: false}
-    attribute 'redmine', {hostname: 'forge.typo3.vagrant', database: {password: 'xxuendxuiendunie'}}
-    #role 'debian'
-    recipe 'site-forgetypo3org'
+      #attribute 'site-forgetypo3org', {ssl_certificate: 'wildcard.vagrant', sso_enabled: false}
+      #attribute 'redmine', {hostname: 'forge.typo3.vagrant', database: {password: 'duenuiexvglhc'}}
+      config[:run_list].each do |recipe_name|
+        recipe recipe_name
+      end
+      #recipe 'site-forgetypo3org'
+  end
 end
-
-#machine 'mq' do
-#    action [:converge]
-#end
-
-#machine 'review' do
-#    action [:converge]
-#end
-
-#machine 'git' do
-#    action [:converge]
-#end
