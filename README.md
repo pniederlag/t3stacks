@@ -1,12 +1,12 @@
-sandbox/playground for chef-metal usage
+Sandbox/Playground for chef-metal usage
 =========================================
 
 Highly experimental! 
 default config will give you a local dev environment with three machines:
 
-* forge/redmine https://forge.typo3.vagrant
-* review/gerrit http://review.typo3.vagrant
-* mq/rabbitmq message server http://mq.typo3.vagrant
+* forge/redmine
+* review/gerrit
+* mq/rabbitmq message server
 
 tha machines are conneceted so you can test the mq broking
 
@@ -26,6 +26,12 @@ add hostnames to your /etc/hosts (automation in preparation)
    10.4.17.6      mq.typo3.vagrant
    10.4.17.7      review.typo3.vagrant
 ```
+
+visit these url's:
+
+* https://forge.typo3.vagrant
+* http://review.typo3.vagrant
+* http://mq.typo3.vagrant
 
 ToDo/Known Problems
 -----------------------------------------
