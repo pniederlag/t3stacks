@@ -13,7 +13,7 @@ tha machines are conneceted so you can test the mq broking
 Usage
 -----------------------------------------
 
-* git clone
+* git clone https://github.com/t3dev/t3stacks.git
 * rake
 * add hostnames to your /etc/hosts (automation in preparation)
 
