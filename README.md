@@ -1,5 +1,5 @@
-Sandbox/Playground for chef-metal usage
-=========================================
+Showcase chef-metal for TYPO3 Server Team
+==========================================
 
 Highly experimental! 
 default config will give you a local dev environment with three machines:
@@ -37,8 +37,7 @@ visit these url's:
 Howto
 -----------------------------------------
 
-forge
-+++++++++++++++++++++++++++++++++++++++++
+### forge
 
 login with admin/admin
 
@@ -47,8 +46,7 @@ set theme to typo3
 add projects 'extensions' and 'packages'
 
 
-rabbitmq
-++++++++++++++++++++++++++++++++++++++++
+### rabbitmq
 
 An (admin) user 'admin' is created with password 'admin' so you can check the queues
 
