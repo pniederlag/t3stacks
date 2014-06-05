@@ -40,7 +40,7 @@ Howto
 rabbitmq: an (admin) user 'admin' is created with password 'admin'
 
 
-ToDo/Known Problems
+Known Problems
 -----------------------------------------
 
 * ssh/config required so berks can isolate the t3-gerrit cookbook from review.typo3.org with your credentials
@@ -63,7 +63,7 @@ the machines key in config.json can be used to generate any other machine
 ToDo
 ------------------------------------------
 
-check wether it is feasible to get this running in docker
-check on using profiles as mentioned by chef-metal (I couldn't get it to work)
-find out about the converge true attribute in the machine ressource (it seems required to set this if for example data_bag/users is updated only)
+* check wether it is feasible to get this running in docker
+* check on using profiles as mentioned by chef-metal (I couldn't get it to work)
+* find out about the converge true attribute in the machine ressource (it seems required to set this if for example data_bag/users is updated only)
 
