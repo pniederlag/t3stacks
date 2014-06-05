@@ -1,0 +1,10 @@
+{
+  "id": "admin",
+  "groups": "",
+  "comment": "admin user",
+  "email": "",
+  "rabbitmq": {
+    "tag": "management administrator",
+    "rights": []
+  }
+}

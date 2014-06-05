@@ -33,6 +33,13 @@ visit these url's:
 * http://review.typo3.vagrant
 * http://mq.typo3.vagrant
 
+
+Howto
+-----------------------------------------
+
+rabbitmq: an (admin) user 'admin' is created with password 'admin'
+
+
 ToDo/Known Problems
 -----------------------------------------
 
