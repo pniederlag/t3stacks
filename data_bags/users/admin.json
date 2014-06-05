@@ -5,6 +5,13 @@
   "email": "",
   "rabbitmq": {
     "tag": "management administrator",
-    "rights": []
+    "rights": [
+      {
+        "vhost": "infrastructure_dev",
+        "conf":  "\\..*",
+        "write": "\\..*",
+        "read":  "\\..*"
+      }
+    ]
   }
 }
