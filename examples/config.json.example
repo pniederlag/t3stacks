@@ -45,8 +45,12 @@
           }
         },
         "gerrit" : {
-          "canonicalWebUrl" : "review.typo3.vagrant",
+          "canonicalWebUrl" : "https://review.typo3.vagrant/",
+          "ssl" : true,
           "ssl_certificate": "wildcard.vagrant",
+          "peer_keys" : {
+            "enabled" : true
+          },
           "war" : {
             "download_url" : "https://github.com/TYPO3/gerrit/releases/download/2.7-typo3-9-g77a0d5c/gerrit-2.7-typo3-9-g77a0d5c.war"
           }
