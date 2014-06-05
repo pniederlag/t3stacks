@@ -26,6 +26,9 @@ node['t3stacks']['machines'].each do |name,config|
       chef_environment "pre-production"
       # dev_mode is for chef-vault plain text databags
       attribute 'dev_mode', true
+      #puts config[:run_list]
+      #recipe_list = config[:run_list].collect {|r| "recipe[" + r + "]"}
+      #run_list recipe_list
       action :create
   end
 
