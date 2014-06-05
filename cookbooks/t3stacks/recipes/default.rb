@@ -32,6 +32,7 @@ node['t3stacks']['machines'].each do |name,config|
   # create machine
   machine name do
       action [:converge]
+      converge true
       chef_environment = "pre-production"
       # @todo handle other options like cpu/ram
       add_machine_options :vagrant_options => {

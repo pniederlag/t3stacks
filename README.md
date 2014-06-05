@@ -65,5 +65,5 @@ ToDo
 
 check wether it is feasible to get this running in docker
 check on using profiles as mentioned by chef-metal (I couldn't get it to work)
-
+find out about the converge true attribute in the machine ressource (it seems required to set this if for example data_bag/users is updated only)
 
