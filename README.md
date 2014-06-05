@@ -37,7 +37,20 @@ visit these url's:
 Howto
 -----------------------------------------
 
-rabbitmq: an (admin) user 'admin' is created with password 'admin'
+forge
++++++++++++++++++++++++++++++++++++++++++
+
+login with admin/admin
+
+set theme to typo3
+
+add projects 'extensions' and 'packages'
+
+
+rabbitmq
+++++++++++++++++++++++++++++++++++++++++
+
+An (admin) user 'admin' is created with password 'admin' so you can check the queues
 
 
 Known Problems
