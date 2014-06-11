@@ -19,7 +19,7 @@ end
 desc 'Bring the VMs online and install+configure Enterprise Chef HA'
 task :up => [:keygen, :cachedir, :config_copy, :bundle, :berks_install] do
   create_users_directory
-  if system("#{t3stacks_dir}/bin/chef-client -z -o t3stacks::default")
+  if system("#{t3stacks_dir}/bin/chef-client -z -o t3stacks::default,t3stacks::fixation")
     Rake::Task['add_hosts'].execute
   end
 end

@@ -39,6 +39,7 @@
       "hostname": "review.typo3.vagrant",
       "ipaddress": "10.4.17.7",
       "run_list": ["site-reviewtypo3org"],
+      "fixation": true,
       "attributes": {
         "site-reviewtypo3org" : {
           "amqp" : {
