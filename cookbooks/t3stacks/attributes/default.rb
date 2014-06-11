@@ -12,6 +12,8 @@ default['t3stacks']['provider'] = 'vagrant'
 default['t3stacks']['repo_path'] = ENV['T3STACKS_DIR']
 default['t3stacks']['vms_dir'] = File.join(ENV['T3STACKS_DIR'], 'vagrant_vms')
 
+default['t3stacks']['enabled'] = config_json['enabled']
+
 default['t3stacks']['machines'] = config_json['machines']
 
 # host_cache_path is mapped to /tmp/cache on the VMs

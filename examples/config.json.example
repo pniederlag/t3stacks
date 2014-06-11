@@ -1,4 +1,5 @@
 {
+  "enabled" : ["gerrit"],
   "machines": {
     "forge": {
       "hostname": "forge.typo3.vagrant",
@@ -45,14 +46,44 @@
           }
         },
         "gerrit" : {
-          "canonicalWebUrl" : "https://review.typo3.vagrant/",
+          "config" : {
+            "database" : {
+              "type" : "mysql"
+            },
+            "gerrit" : {
+              "canonicalWebUrl" : "https://review.typo3.vagrant/"
+            }
+          },
           "ssl" : true,
           "ssl_certificate": "wildcard.vagrant",
           "peer_keys" : {
             "enabled" : true
           },
           "war" : {
-            "download_url" : "https://github.com/TYPO3/gerrit/releases/download/2.7-typo3-9-g77a0d5c/gerrit-2.7-typo3-9-g77a0d5c.war"
+          }
+        }
+      }
+    },
+    "gerrit": {
+      "hostname": "gerrit.typo3.vagrant",
+      "ipaddress": "10.4.17.8",
+      "run_list": ["gerrit"],
+      "attributes": {
+        "gerrit" : {
+          "config" : {
+            "database" : {
+              "type" : "mysql"
+            },
+            "gerrit" : {
+              "canonicalWebUrl" : "https://gerrit.typo3.vagrant/"
+            }
+          },
+          "ssl" : true,
+          "ssl_certificate": "wildcard.vagrant",
+          "peer_keys" : {
+            "enabled" : true
+          },
+          "war" : {
           }
         }
       }

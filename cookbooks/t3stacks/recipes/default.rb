@@ -20,7 +20,8 @@ chef_environment "pre-production" do
 end
 
 # run through machines and create nodes + machines
-node['t3stacks']['machines'].each do |name,config|
+node['t3stacks']['enabled'].each do |name|
+  config = node['t3stacks']['machines'][name]
   # create node
   chef_node name do
       chef_environment "pre-production"
