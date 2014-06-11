@@ -8,7 +8,7 @@ default config will give you a local dev environment with three machines:
 * review/gerrit
 * mq/rabbitmq message server
 
-tha machines are conneceted so you can test the mq broking
+the machines are conneceted so you can test the mq broking
 
 Usage
 -----------------------------------------
@@ -24,7 +24,8 @@ add hostnames to your /etc/hosts (automation in preparation)
 ```
    10.4.17.5      forge.typo3.vagrant
    10.4.17.6      mq.typo3.vagrant
-   10.4.17.7      review.typo3.vagrant
+   10.4.17.7      review.typo3.vagrant (custom gerrit setup for TYPO3)
+   10.4.17.8      gerrit.typo3.vagrant ("plain" gerrit recipe), disabled by default
 ```
 
 visit these url's:
@@ -49,6 +50,15 @@ add projects 'extensions' and 'packages'
 ### rabbitmq
 
 An (admin) user 'admin' is created with password 'admin' so you can check the queues
+
+
+config.json
+------------------------------------------
+
+### keys
+
+machines = {}, array with machine definitions (attributes, run_list, ...)
+enabled = [„xxx“,“bar“], List of machines to converge/build. Keys must be available in machines config.
 
 
 Known Problems
