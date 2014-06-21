@@ -1,6 +1,13 @@
 {
-  "enabled" : ["gerrit"],
+  "enabled" : ["builddocs"],
   "machines": {
+    "builddocs": {
+      "hostname": "build.docs.typo3.vagrant",
+      "ipaddress": "10.4.17.9",
+      "run_list": ["site-docstypo3org"],
+      "attributes": {
+      }
+    },
     "forge": {
       "hostname": "forge.typo3.vagrant",
       "ipaddress": "10.4.17.5",
