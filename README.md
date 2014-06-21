@@ -4,11 +4,12 @@ Showcase chef-metal for TYPO3 Server Team
 Highly experimental! 
 default config will give you a local dev environment with three machines:
 
-* forge/redmine
-* review/gerrit
-* mq/rabbitmq message server
+* build.docs.typo3 (enabled)
+* forge/redmine (disabled)
+* review/gerrit (disabled)
+* mq/rabbitmq message server (disabled)
 
-the machines are conneceted so you can test the mq broking
+the machines are conneceted so you can test the mq broking (disabled)
 
 Usage
 -----------------------------------------
