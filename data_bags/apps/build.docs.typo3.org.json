@@ -1,0 +1,52 @@
+{
+  "id": "build-docs-typo3-org",
+  "roles": {
+    "typo3_docs": [
+      "packages",
+      "user",
+      "mysql",
+      "php5",
+      "apache2",
+      "app",
+      "restructuredtext",
+      "libreoffice"
+    ]
+  },
+  "owner": "vagrant",
+  "group": "vagrant",
+  "owner_home": "/home/vagrant",
+  "home": "/var/www/vhosts/build.docs.typo3.vagrant",
+  "deploy_to": "/var/www/vhosts/build.docs.typo3.vagrant/releases",
+  "shared_to": "/var/www/vhosts/build.docs.typo3.vagrant/shared",
+  "repository": "https://github.com/TYPO3-infrastructure/build.docs.typo3.org",
+  "revision": {
+    "production": "origin/master",
+    "pre-production": "origin/master"
+  },
+  "databases": {
+    "production": {
+      "encoding": "utf8",
+      "database": "docstypo3org",
+      "username": "dummy",
+      "adapter": "mysql",
+      "host": "127.0.0.1"
+    },
+    "pre-production": {
+      "encoding": "utf8",
+      "database": "docstypo3org",
+      "username": "dummy",
+      "adapter": "mysql",
+      "host": "127.0.0.1"
+    }
+  },
+  "stages": {
+    "pre-production": {
+      "log_directory": "/var/www/vhosts/build.docs.typo3.vagrant/log",
+      "document_root": "/var/www/vhosts/build.docs.typo3.vagrant/www",
+      "server_name": "build.docs.typo3.vagrant",
+      "flow_context": "Production",
+      "server_alias": "build.docs.typo3.vagrant",
+      "fqdn": "build.docs.typo3.vagrant"
+    }
+  }
+}
