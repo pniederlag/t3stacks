@@ -57,13 +57,14 @@
           "config" : {
             "database" : {
               "type" : "mysql"
-            },
+            },  
             "gerrit" : {
               "canonicalWebUrl" : "https://review.typo3.vagrant/"
             }
           },
-          "ssl" : true,
-          "ssl_certificate": "wildcard.vagrant",
+          "proxy" : {
+            "ssl" : true
+          },
           "peer_keys" : {
             "enabled" : true
           },
@@ -86,8 +87,9 @@
               "canonicalWebUrl" : "https://gerrit.typo3.vagrant/"
             }
           },
-          "ssl" : true,
-          "ssl_certificate": "wildcard.vagrant",
+          "proxy" : {
+            "ssl" : true
+          },
           "peer_keys" : {
             "enabled" : true
           },
