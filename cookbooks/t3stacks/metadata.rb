@@ -6,5 +6,5 @@ description      'Installs/Configures different stacks of typo3.org infrastructu
 long_description 'help with local cookbook development by providing local setupst'
 version          '0.1.0'
 
-depends 'openssl'
+#depends 'openssl'
 #depends 'site-forgetypo3org'
