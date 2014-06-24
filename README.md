@@ -66,7 +66,7 @@ Known Problems
 -----------------------------------------
 
 * ssh/config required so berks can isolate the t3-gerrit cookbook from review.typo3.org with your credentials
-* [DONE] debian lsb package must be installed (otherwise node.lsb.name breaks!)
+* [DONE] Debian "lsb-release" package must be installed (otherwise node.lsb.codename breaks!)
 
 
 Misc
