@@ -11,6 +11,13 @@ default config will give you a local dev environment with three machines:
 
 the machines are conneceted so you can test the mq broking (disabled)
 
+Requirements
+----------------------------------------
+
+* virtualbox (recent!)
+* vagrant (recent!)
+* ruby with rake and bundler
+
 Usage
 -----------------------------------------
 
