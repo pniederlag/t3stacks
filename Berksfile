@@ -1,6 +1,7 @@
 source "https://api.berkshelf.com"
 
 #metadata
+cookbook 'apt'
 cookbook 'nginx'
 cookbook 'openssl'
 cookbook 'runit', '~>1.5'

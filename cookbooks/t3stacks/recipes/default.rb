@@ -56,6 +56,7 @@ node['t3stacks']['enabled'].each do |name|
       end
       #attribute 'site-forgetypo3org', {ssl_certificate: 'wildcard.vagrant', sso_enabled: false}
       #attribute 'redmine', {hostname: 'forge.typo3.vagrant', database: {password: 'duenuiexvglhc'}}
+      recipe 'apt'
       config[:run_list].each do |recipe_name|
         recipe recipe_name
       end
