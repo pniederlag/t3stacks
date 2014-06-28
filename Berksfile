@@ -7,7 +7,7 @@ cookbook 'openssl'
 cookbook 'runit', '~>1.5'
 cookbook 'mysql', '~>3.0'
 cookbook 'php', github: 'TYPO3-Cookbooks/php'
-cookbook 'chef-vault', github: 'TYPO3-Cookbooks/chef-vault', branch: 'develop'
+cookbook "t3-chef-vault", github: "TYPO3-cookbooks/t3-chef-vault"
 cookbook 'redmine', github: 'TYPO3-Cookbooks/redmine', branch: 'petern'
 cookbook 'ssl_certificates', github: 'TYPO3-Cookbooks/ssl_certificates'
 cookbook 'gerrit', github: 'TYPO3-Cookbooks/gerrit', branch: 'refactoring'
