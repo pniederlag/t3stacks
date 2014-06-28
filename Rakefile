@@ -26,12 +26,11 @@ end
 
 task :start => :up
 
-desc 'Destroy all VMs'
-task :destroy do
-  system("#{t3stacks_dir}/bin/chef-client -z -o t3stacks::cleanup")
-  Rake::Task['remove_hosts'].execute
+desc 'Destroy a machine'
+task :destroy, [:machine] do |t,arg|
+  system({"DESTROY_MACHINE" => arg.machine}, "#{t3stacks_dir}/bin/chef-client -z -o t3stacks::destroy")
+  #Rake::Task['remove_hosts'].execute
 end
-task :cleanup => :destroy
 
 desc 'SSH to a machine like so: rake ssh[backend1]'
 task :ssh, [:machine] do |t,arg|
