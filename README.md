@@ -1,8 +1,9 @@
 Showcase chef-metal for TYPO3 Server Team
 ==========================================
 
-Highly experimental! 
-default config will give you a local dev environment with three machines:
+Experimental, be prepared for some rough edges! 
+
+include machine definitions by defaul:
 
 * build.docs.typo3 (enabled)
 * forge/redmine (disabled)
@@ -32,8 +33,9 @@ add hostnames to your /etc/hosts (automation in preparation)
 ```
    10.4.17.5      forge.typo3.vagrant
    10.4.17.6      mq.typo3.vagrant
-   10.4.17.7      review.typo3.vagrant (custom gerrit setup for TYPO3)
-   10.4.17.8      gerrit.typo3.vagrant ("plain" gerrit recipe), disabled by default
+   10.4.17.7      review.typo3.vagrant #(custom gerrit setup for TYPO3)
+   10.4.17.8      gerrit.typo3.vagrant #("plain" gerrit recipe), disabled by default
+   10.4.17.9      build,docs.typo3.vagrant #("plain" gerrit recipe), disabled by default
 ```
 
 visit these url's:
@@ -41,6 +43,7 @@ visit these url's:
 * https://forge.typo3.vagrant
 * http://review.typo3.vagrant
 * http://mq.typo3.vagrant
+* http://build.docs.typo3.vagrant
 
 
 Howto
