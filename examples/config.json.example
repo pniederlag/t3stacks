@@ -94,7 +94,7 @@
             "enabled" : true
           },
           "batch_admin_user" : {
-          	"enabled" : true
+            "enabled" : true
           },
           "war" : {
           }
