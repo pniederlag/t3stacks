@@ -93,6 +93,9 @@
           "peer_keys" : {
             "enabled" : true
           },
+          "batch_admin_user" : {
+          	"enabled" : true
+          },
           "war" : {
           }
         }
