@@ -7,6 +7,7 @@
 pkg/
 .buildpath
 .project
+nbproject/
 
 # Berkshelf
 .vagrant
