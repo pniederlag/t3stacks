@@ -31,11 +31,16 @@ rake
 add hostnames to your /etc/hosts (automation in preparation)
 
 ```
+   # forge/redmine setup with TYPO3 customisations
    10.4.17.5      forge.typo3.vagrant
+   # rabbitmq mq server
    10.4.17.6      mq.typo3.vagrant
-   10.4.17.7      review.typo3.vagrant #(custom gerrit setup for TYPO3)
-   10.4.17.8      gerrit.typo3.vagrant #("plain" gerrit recipe), disabled by default
-   10.4.17.9      build,docs.typo3.vagrant #("plain" gerrit recipe), disabled by default
+   # custom gerrit setup for TYPO3
+   10.4.17.7      review.typo3.vagrant
+   # "plain" gerrit recipe
+   10.4.17.8      gerrit.typo3.vagrant
+   # build.docs
+   10.4.17.9      build.docs.typo3.vagrant
 ```
 
 visit these url's:
