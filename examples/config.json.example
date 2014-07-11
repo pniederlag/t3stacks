@@ -53,6 +53,11 @@
             "server" : "mq.typo3.vagrant"
           }
         },
+        "site-gittypo3org" : {
+          "amqp" : {
+            "server" : "mq.typo3.vagrant"
+          }
+        },
         "gerrit" : {
           "config" : {
             "database" : {
