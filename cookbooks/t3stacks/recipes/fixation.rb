@@ -8,6 +8,7 @@
 require 'chef_metal'
 
 # fixation on *review*
+# strange behaviour, every curl call to the login url raises the account_id in gerrit db
 # allow any login on review and create user admin
 # remove crontab (syncing users/groups with api will fail due to missing permissions on typo3.org)
 if node['t3stacks']['enabled'].include? 'review' and node['t3stacks']['machines']['review'] and node['t3stacks']['machines']['review']['fixation'] 
