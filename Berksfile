@@ -17,6 +17,6 @@ cookbook 'site-docstypo3org', github: 'TYPO3-Cookbooks/site-docstypo3org', branc
 cookbook 'site-mqtypo3org', github: 'TYPO3-Cookbooks/site-mqtypo3org', branch: 'master'
 
 group :private do
-    cookbook 't3-gerrit', git: 'ssh://review.typo3.org/Teams/Server/Chef.git', branch: 'feature/t3-gerrit-replication', rel: 'site-cookbooks/t3-gerrit', group: 'private'
+    cookbook 't3-gerrit', git: 'ssh://review.typo3.org/Teams/Server/Chef.git', branch: 'master', rel: 'site-cookbooks/t3-gerrit', group: 'private'
     cookbook 'site-reviewtypo3org', github: 'TYPO3-Cookbooks/site-reviewtypo3org', branch: 'develop'
 end
