@@ -1,0 +1,62 @@
+{
+    "default_attributes": {
+        "gerrit": {
+            "batch_admin_user": {
+                "enabled": true
+            },
+            "config": {
+                "database": {
+                    "type": "mysql"
+                },
+                "gerrit": {
+                    "canonicalWebUrl": "https://review.typo3.vagrant/"
+                }
+            },
+            "proxy": {
+                "ssl": true
+            }
+        },
+        "gitweb": {
+            "ssl_certificate": "wildcard.vagrant",
+            "hostname": "git.typo3.vagrant"
+        },
+        "redmine": {
+            "database": {
+                "password": "xxuendxuiendunie"
+            },
+            "hostname": "forge.typo3.vagrant"
+        },
+        "site-forgetypo3org": {
+            "amqp": {
+                "server": "mq.typo3.vagrant",
+                "user": "devforgetypo3org",
+                "vhost": "infrastructure_dev"
+            },
+            "ssl_certificate": "wildcard.vagrant",
+            "sso_enabled": false
+        },
+        "site-gittypo3org": {
+            "amqp": {
+                "server": "mq.typo3.vagrant",
+                "user": "devgittypo3org",
+                "vhost": "infrastructure_dev"
+            }
+        },
+        "site-mqtypo3org": {
+            "hostname": "mq.typo3.vagrant",
+            "proxy": {
+                "hostname": "mq.typo3.vagrant",
+                "ssl": false
+            }
+        },
+        "site-reviewtypo3org": {
+            "amqp": {
+                "server": "mq.typo3.vagrant",
+                "user": "devreviewtypo3org",
+                "vhost": "infrastructure_dev"
+            }
+        }
+    },
+    "description": "default environment used by t3stacks development",
+    "name": "t3stacks"
+}

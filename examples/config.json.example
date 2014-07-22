@@ -13,17 +13,16 @@
       "ipaddress": "10.4.17.5",
       "run_list": ["site-forgetypo3org"],
       "attributes": {
-        "site-forgetypo3org" : { 
-          "ssl_certificate": "wildcard.vagrant",
-          "sso_enabled": false,
-          "amqp" : {
-            "server" : "mq.typo3.vagrant"
-          }
-        },
+      }
+    },
+    "redmine": {
+      "hostname": "redmine.typo3.vagrant",
+      "ipaddress": "10.4.17.10",
+      "run_list": ["redmine"],
+      "attributes": {
         "redmine" : {
-          "hostname" : "forge.typo3.vagrant",
-          "database" : {
-            "password" : "xxuendxuiendunie"
+          "source": {
+            "reference": "1.4-stable"
           }
         }
       }
@@ -33,49 +32,14 @@
       "ipaddress": "10.4.17.6",
       "run_list": ["site-mqtypo3org"],
       "attributes": {
-        "site-mqtypo3org" : {
-          "hostname" : "mq.typo3.vagrant",
-          "proxy" : {
-            "hostname" : "mq.typo3.vagrant",
-            "ssl" : false
-          }
-        }
       }
     },
     "review": {
       "hostname": "review.typo3.vagrant",
       "ipaddress": "10.4.17.7",
-      "run_list": ["site-reviewtypo3org"],
+      "run_list": ["site-reviewtypo3org", "site-gittypo3org", "t3-gerrit::replication"],
       "fixation": true,
       "attributes": {
-        "site-reviewtypo3org" : {
-          "amqp" : {
-            "server" : "mq.typo3.vagrant"
-          }
-        },
-        "site-gittypo3org" : {
-          "amqp" : {
-            "server" : "mq.typo3.vagrant"
-          }
-        },
-        "gerrit" : {
-          "config" : {
-            "database" : {
-              "type" : "mysql"
-            },  
-            "gerrit" : {
-              "canonicalWebUrl" : "https://review.typo3.vagrant/"
-            }
-          },
-          "proxy" : {
-            "ssl" : true
-          },
-          "peer_keys" : {
-            "enabled" : true
-          },
-          "war" : {
-          }
-        }
       }
     },
     "gerrit": {
@@ -85,23 +49,9 @@
       "attributes": {
         "gerrit" : {
           "config" : {
-            "database" : {
-              "type" : "mysql"
-            },
             "gerrit" : {
               "canonicalWebUrl" : "https://gerrit.typo3.vagrant/"
             }
-          },
-          "proxy" : {
-            "ssl" : true
-          },
-          "peer_keys" : {
-            "enabled" : true
-          },
-          "batch_admin_user" : {
-            "enabled" : true
-          },
-          "war" : {
           }
         }
       }
