@@ -1,6 +1,4 @@
 {
-    "name": "t3stacks",
-    "description": "default environment used by t3stacks development",
     "default_attributes": {
         "gerrit": {
             "batch_admin_user": {
@@ -17,6 +15,9 @@
             "proxy": {
                 "ssl": true
             }
+        },
+        "gitweb": {
+            "ssl_certificate": "insecure.wildcard.vagrant"
         },
         "redmine": {
             "database": {
@@ -54,5 +55,7 @@
                 "vhost": "infrastructure_dev"
             }
         }
-    }
+    },
+    "description": "default environment used by t3stacks development",
+    "name": "t3stacks"
 }
