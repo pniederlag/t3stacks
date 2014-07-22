@@ -16,10 +16,11 @@ cookbook "git-daemon", github: "TYPO3-cookbooks/git-daemon"
 cookbook "gitweb", github: "TYPO3-cookbooks/gitweb"
 cookbook 'site-forgetypo3org', github: 'TYPO3-Cookbooks/site-forgetypo3org', branch: 'develop'
 cookbook 'site-docstypo3org', github: 'TYPO3-Cookbooks/site-docstypo3org', branch: 'develop'
-cookbook 'site-gittypo3org', github: 'TYPO3-Cookbooks/site-gittypo3org'
 cookbook 'site-mqtypo3org', github: 'TYPO3-Cookbooks/site-mqtypo3org', branch: 'master'
 
 group :private do
     cookbook 't3-gerrit', git: 'ssh://review.typo3.org/Teams/Server/Chef.git', branch: 'master', rel: 'site-cookbooks/t3-gerrit', group: 'private'
+    cookbook 't3-gitweb', git: 'ssh://review.typo3.org/Teams/Server/Chef.git', branch: 'master', rel: 'site-cookbooks/t3-gitweb', group: 'private'
     cookbook 'site-reviewtypo3org', github: 'TYPO3-Cookbooks/site-reviewtypo3org', branch: 'develop'
+    cookbook 'site-gittypo3org', github: 'TYPO3-Cookbooks/site-gittypo3org'
 end
