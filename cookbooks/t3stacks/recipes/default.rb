@@ -24,7 +24,7 @@ node['t3stacks']['enabled'].each do |name|
   config = node['t3stacks']['machines'][name]
   # create node
   chef_node name do
-      chef_environment "xxx"
+      chef_environment "t3stacks"
       # dev_mode is for chef-vault plain text databags
       attribute 'dev_mode', true
       #puts config[:run_list]

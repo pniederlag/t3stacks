@@ -1,0 +1,52 @@
+{
+    "name": "t3stacks",
+    "description": "default environment used by t3stacks development",
+    "default_attributes": {
+        "gerrit": {
+            "batch_admin_user": {
+                "enabled": true
+            },
+            "config": {
+                "database": {
+                    "type": "mysql"
+                },
+                "gerrit": {
+                    "canonicalWebUrl": "https://review.typo3.vagrant/"
+                }
+            },
+            "proxy": {
+                "ssl": true
+            }
+        },
+        "redmine": {
+            "database": {
+                "password": "xxuendxuiendunie"
+            },
+            "hostname": "forge.typo3.vagrant"
+        },
+        "site-forgetypo3org": {
+            "amqp": {
+                "server": "mq.typo3.vagrant"
+            },
+            "ssl_certificate": "wildcard.vagrant",
+            "sso_enabled": false
+        },
+        "site-gittypo3org": {
+            "amqp": {
+                "server": "mq.typo3.vagrant"
+            }
+        },
+        "site-mqtypo3org": {
+            "hostname": "mq.typo3.vagrant",
+            "proxy": {
+                "hostname": "mq.typo3.vagrant",
+                "ssl": false
+            }
+        },
+        "site-reviewtypo3org": {
+            "amqp": {
+                "server": "mq.typo3.vagrant"
+            }
+        }
+    }
+}
