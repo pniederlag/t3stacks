@@ -22,7 +22,6 @@ vendor/*
 
 nodes/
 clients/
-environments/
 vagrant_vms/
 
 .chef/local-mode-cache

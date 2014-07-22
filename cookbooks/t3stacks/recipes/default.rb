@@ -2,9 +2,9 @@
 # Cookbook Name:: metaltest
 # Recipe:: default
 #
-# Copyright (C) 2014 
+# Copyright (C) 2014
 #
-# 
+#
 require 'chef_metal'
 
 #def chef_repo_path
@@ -15,16 +15,16 @@ provider = node['t3stacks']['provider']
 include_recipe("t3stacks::#{provider}")
 
 # create environment
-chef_environment "pre-production" do
-    action :create
-end
+#chef_environment "pre-production" do
+#    action :create
+#end
 
 # run through machines and create nodes + machines
 node['t3stacks']['enabled'].each do |name|
   config = node['t3stacks']['machines'][name]
   # create node
   chef_node name do
-      chef_environment "pre-production"
+      chef_environment "xxx"
       # dev_mode is for chef-vault plain text databags
       attribute 'dev_mode', true
       #puts config[:run_list]
