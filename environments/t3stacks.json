@@ -26,14 +26,18 @@
         },
         "site-forgetypo3org": {
             "amqp": {
-                "server": "mq.typo3.vagrant"
+                "server": "mq.typo3.vagrant",
+                "user": "devforgetypo3org",
+                "vhost": "infrastructure_dev"
             },
             "ssl_certificate": "wildcard.vagrant",
             "sso_enabled": false
         },
         "site-gittypo3org": {
             "amqp": {
-                "server": "mq.typo3.vagrant"
+                "server": "mq.typo3.vagrant",
+                "user": "devgittypo3org",
+                "vhost": "infrastructure_dev"
             }
         },
         "site-mqtypo3org": {
@@ -45,7 +49,9 @@
         },
         "site-reviewtypo3org": {
             "amqp": {
-                "server": "mq.typo3.vagrant"
+                "server": "mq.typo3.vagrant",
+                "user": "devreviewtypo3org",
+                "vhost": "infrastructure_dev"
             }
         }
     }
