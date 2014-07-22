@@ -17,7 +17,8 @@
             }
         },
         "gitweb": {
-            "ssl_certificate": "insecure.wildcard.vagrant"
+            "ssl_certificate": "wildcard.vagrant",
+            "hostname": "git.typo3.vagrant"
         },
         "redmine": {
             "database": {
