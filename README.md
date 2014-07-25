@@ -1,7 +1,7 @@
 Showcase chef-metal for TYPO3 Server Team
 ==========================================
 
-Experimental, be prepared for some rough edges! 
+Experimental, be prepared for some rough edges!
 
 include machine definitions by defaul:
 
@@ -17,9 +17,9 @@ Requirements
 
 * virtualbox (recent!)
 * vagrant (recent!)
-* ruby with rake and bundler
+* ruby with rake and bundler (not ancient cupertino version, rvm is known to be troublesome)
 
-Usage
+Quickstart
 -----------------------------------------
 
 ``` bash
@@ -50,8 +50,28 @@ visit these url's:
 * http://mq.typo3.vagrant
 * http://build.docs.typo3.vagrant
 
+Usage
+------------------------------------------
+``` bash
+# list available tasks
+rake -T
 
-Howto
+# ssh into machine (replace builddocs with the machine that you want to ssh to
+rake ssh[builddocs]
+```
+
+you can ssh to the machines with vagrant/vagrant for username/password from "anywhere"
+
+config.json
+------------------------------------------
+
+### keys
+
+machines = {}, array with machine definitions (attributes, run_list, ...)
+enabled = [„xxx“,“bar“], List of machines to converge/build. Keys must be available in machines config.
+
+
+Notes on individual machines
 -----------------------------------------
 
 ### forge
@@ -66,15 +86,6 @@ add projects 'extensions' and 'packages'
 ### rabbitmq
 
 An (admin) user 'admin' is created with password 'admin' so you can check the queues
-
-
-config.json
-------------------------------------------
-
-### keys
-
-machines = {}, array with machine definitions (attributes, run_list, ...)
-enabled = [„xxx“,“bar“], List of machines to converge/build. Keys must be available in machines config.
 
 
 Known Problems
