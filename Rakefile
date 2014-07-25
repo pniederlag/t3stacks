@@ -92,12 +92,12 @@ end
 
 task :berks_install do
   cookbooks_path = File.join(t3stacks_dir, 'vendor/cookbooks')
-  system("#{t3stacks_dir}/bin/berks vendor #{cookbooks_path}")
+  system("#{t3stacks_dir}/bin/berks vendor #{cookbooks_path} --except private")
 end
 
 desc '[DANGER!] delete vendor/cookbooks and Berksfile.lock and rebuild [DANGER!]'
 task :berks_recreate do
   cookbooks_path = File.join(t3stacks_dir, 'vendor/cookbooks')
-	system("rm -rf #{cookbooks_path} Berksfile.lock")
-  system("#{t3stacks_dir}/bin/berks vendor #{cookbooks_path}")
+  system("rm -rf #{cookbooks_path} Berksfile.lock")
+  system("#{t3stacks_dir}/bin/berks vendor #{cookbooks_path} --except private")
 end
