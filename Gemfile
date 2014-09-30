@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
-gem 'chef', '~>11.14.0.alpha.3'
+gem 'chef', '~>11.14.6'
 gem 'chef-vault'
-gem 'chef-metal',         :github => 'opscode/chef-metal'
+gem 'chef-metal', '~>0.14.2'
 gem 'chef-metal-vagrant', :github => 'opscode/chef-metal-vagrant'
 gem 'berkshelf',            :github => 'berkshelf/berkshelf'
 gem 'cheffish',           :github => 'opscode/cheffish'
