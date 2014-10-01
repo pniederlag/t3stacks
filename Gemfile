@@ -4,7 +4,7 @@ gem 'chef', '~>11.14.6'
 gem 'chef-vault'
 gem 'chef-metal', '~>0.14.2'
 gem 'chef-metal-vagrant', :github => 'opscode/chef-metal-vagrant'
-gem 'berkshelf',            :github => 'berkshelf/berkshelf'
+gem 'berkshelf', '~>3.1.5'
 gem 'cheffish',           :github => 'opscode/cheffish'
 
 # Uncomment these lines if you want to live on the Edge:
