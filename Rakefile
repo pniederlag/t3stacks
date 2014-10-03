@@ -65,21 +65,6 @@ task :keygen do
   end
 end
 
-desc 'Add hosts entries to /etc/hosts'
-task :add_hosts do
-  config = get_config
-  puts "@todo: hosts/dns management"
-  #create_hosts_entries(config['machines'])
-  #print_final_message(config, t3stacks_dir)
-end
-
-desc 'Remove hosts entries to /etc/hosts'
-task :remove_hosts do
-  config = get_config
-  puts "@todo: hosts/dns management"
-  #remove_hosts_entries(config['machines'])
-end
-
 task :cachedir do
   if ENV['CACHE_PATH'] && Dir.exists?(ENV['CACHE_PATH'])
     cachedir = ENV['CACHE_PATH']
