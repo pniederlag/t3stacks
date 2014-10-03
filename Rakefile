@@ -2,7 +2,7 @@ require 'json'
 require 'fileutils'
 Dir["lib/tasks/*.rake"].each { |t| load t }
 
-task :default => [:up]
+task :default => [:provision]
 
 # Environment variables to be consumed by ec-t3stacks and friends
 t3stacks_dir = ENV['T3STACKS_DIR'] = File.dirname(__FILE__)
@@ -11,17 +11,14 @@ def get_config
   JSON.parse(File.read('config.json'))
 end
 
-desc 'Install required Gems into the vendor/bundle directory'
-task :bundle do
-  system('bundle install --path vendor/bundle --binstubs')
+desc '[DEFAULT] startup virtual machines and provision them (includes init)'
+task :provision => [:init] do
+  system("#{t3stacks_dir}/bin/chef-client -z -o t3stacks::default,t3stacks::fixation")
 end
 
-desc 'Bring the VMs online and install+configure Enterprise Chef HA'
-task :up => [:keygen, :cachedir, :config_copy, :bundle, :berks_recreate] do
+desc 'basic setup and system check'
+task :init => [:keygen, :cachedir, :config_copy, :bundle, :berks_install] do
   create_users_directory
-  if system("#{t3stacks_dir}/bin/chef-client -z -o t3stacks::default,t3stacks::fixation")
-    Rake::Task['add_hosts'].execute
-  end
 end
 
 task :start => :up
@@ -32,21 +29,21 @@ task :destroy, [:machine] do |t,arg|
   #Rake::Task['remove_hosts'].execute
 end
 
-desc 'SSH to a machine like so: rake ssh[backend1]'
-task :ssh, [:machine] do |t,arg|
-  Dir.chdir(File.join(t3stacks_dir, 'vagrant_vms')) {
-    system("vagrant ssh #{arg.machine}")
-  }
-end
-
 # Vagrant standard but useful commands
-%w(status halt suspend resume).each do |command|
-  desc "Equivalent to running: vagrant #{command}"
-  task :"#{command}" do
+%w(status halt suspend resume ssh).each do |command|
+  desc "Equivalent to running: vagrant #{command} $machine"
+  task :"#{command}", [:machine] do |t,arg|
     Dir.chdir(File.join(t3stacks_dir, 'vagrant_vms')) {
-      system("vagrant #{command}")
+      system("vagrant #{command} #{arg.machine}")
     }
   end
+end
+
+desc 'update cookbooks by deleting vendor/cookbooks and Berksfile.lock'
+task :update_cb do
+  cookbooks_path = File.join(t3stacks_dir, 'vendor/cookbooks')
+  system("rm -rf #{cookbooks_path} Berksfile.lock")
+  system("#{t3stacks_dir}/bin/berks vendor #{cookbooks_path} --except private")
 end
 
 task :config_copy do
@@ -75,14 +72,12 @@ task :cachedir do
   puts "Using package cache directory #{cachedir}"
 end
 
-task :berks_install do
-  cookbooks_path = File.join(t3stacks_dir, 'vendor/cookbooks')
-  system("#{t3stacks_dir}/bin/berks vendor #{cookbooks_path} --except private")
+#desc 'Install required Gems into the vendor/bundle directory'
+task :bundle do
+  system('bundle install --path vendor/bundle --binstubs')
 end
 
-desc '[DANGER!] delete vendor/cookbooks and Berksfile.lock and rebuild [DANGER!]'
-task :berks_recreate do
+task :berks_install do
   cookbooks_path = File.join(t3stacks_dir, 'vendor/cookbooks')
-  system("rm -rf #{cookbooks_path} Berksfile.lock")
-  system("#{t3stacks_dir}/bin/berks vendor #{cookbooks_path} --except private")
+  system("#{t3stacks_dir}/bin/berks vendor #{cookbooks_path}")
 end
