@@ -1,23 +1,29 @@
 Showcase chef-metal for TYPO3 Server Team
 ==========================================
 
+t3stacks is an effort to provide a generic runtime
+environment for chef-cookbooks used by the typo3.org project.
+
+Potential use cases include testing and development of cookbooks as well
+as providing development environments of applications used within the typo3.org project
+(for example redmine, docs, ...)
+
+We currently ship/provide machine definitions/setups for these environments:
+
+* build.docs.typo3
+* forge/redmine
+* review/gerrit
+* mq/rabbitmq message server
+
 Experimental, be prepared for some rough edges!
-
-include machine definitions by defaul:
-
-* build.docs.typo3 (enabled)
-* forge/redmine (disabled)
-* review/gerrit (disabled)
-* mq/rabbitmq message server (disabled)
-
-the machines are conneceted so you can test the mq broking (disabled)
+Documentation is NOT complete/finished, please be prepared to have a look at the source (rake tasks,...).
 
 Requirements
 ----------------------------------------
 
 * virtualbox (recent!)
 * vagrant (recent!)
-* ruby with rake and bundler (not ancient cupertino version, rvm is known to be troublesome)
+* ruby with rake and bundler (recent version, Mac OS system ruby is NOT sufficient, rvm is known to be troublesome)
 
 Quickstart
 -----------------------------------------
