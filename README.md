@@ -25,6 +25,14 @@ Requirements
 * vagrant (recent!)
 * ruby with rake and bundler (recent version, Mac OS system ruby is NOT sufficient, rvm is known to be troublesome)
 
+Tip
+-----------------------------------------
+
+vagrant plugin install vagrant-proxyconf
+export VAGRANT_HTTP_PROXY="http://proxy.example.com:8080"
+export VAGRANT_HTTPS_PROXY="http://proxy.example.com:8080"
+
+
 Quickstart
 -----------------------------------------
 
