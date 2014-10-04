@@ -5,7 +5,7 @@ cookbook 'apt'
 cookbook 'nginx'
 cookbook 'openssl'
 cookbook 'runit', '~>1.5'
-cookbook 'mysql', '~>3.0'
+cookbook 'mysql'
 cookbook 'ssh', github: 'markolson/chef-ssh'
 cookbook 'php', github: 'TYPO3-Cookbooks/php'
 cookbook "t3-chef-vault", github: "TYPO3-cookbooks/t3-chef-vault"
