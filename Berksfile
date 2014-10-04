@@ -15,7 +15,7 @@ cookbook 'gerrit', github: 'TYPO3-Cookbooks/gerrit', branch: 'refactoring'
 cookbook "git-daemon", github: "TYPO3-cookbooks/git-daemon"
 cookbook "gitweb", github: "TYPO3-cookbooks/gitweb"
 cookbook 'site-forgetypo3org', github: 'TYPO3-Cookbooks/site-forgetypo3org', branch: 'develop'
-cookbook 'site-docstypo3org', github: 'TYPO3-Cookbooks/site-docstypo3org', branch: 'develop'
+cookbook 'site-docstypo3org', github: 'TYPO3-Cookbooks/site-docstypo3org', branch: 'master'
 cookbook 'site-mqtypo3org', github: 'TYPO3-Cookbooks/site-mqtypo3org', branch: 'master'
 
 group :private do
