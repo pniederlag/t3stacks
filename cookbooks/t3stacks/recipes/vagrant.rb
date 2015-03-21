@@ -25,5 +25,5 @@ node['t3stacks']['machines'].each do |vmname, config|
   additional_vagrant_config = {
     ':vagrant_config' => VagrantConfigHelper.generate_vagrant_config(vmname, config, node)
   }
-  #node.set['t3stacks']['provisioner_options'][vmname] = run_context.chef_metal.current_machine_options.merge(additional_vagrant_config)
+  #node.set['t3stacks']['provisioner_options'][vmname] = run_context.chef_provisioning.current_machine_options.merge(additional_vagrant_config)
 end
