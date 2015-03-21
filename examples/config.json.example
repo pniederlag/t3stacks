@@ -22,7 +22,7 @@
       "attributes": {
         "redmine" : {
           "source": {
-            "reference": "1.4-stable"
+            "reference": "3.0-stable"
           }
         }
       }
