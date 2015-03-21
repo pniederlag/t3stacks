@@ -1,5 +1,5 @@
 {
-  "enabled" : ["builddocs"],
+  "enabled" : ["forge"],
   "machines": {
     "builddocs": {
       "hostname": "build.docs.typo3.vagrant",
