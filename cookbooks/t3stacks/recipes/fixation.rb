@@ -5,7 +5,7 @@
 # Copyright (C) 2014 
 #
 # 
-require 'chef_metal'
+require 'chef/provisioning'
 
 # fixation on *review*
 # strange behaviour, every curl call to the login url raises the account_id in gerrit db

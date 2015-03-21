@@ -1,4 +1,4 @@
-Showcase chef-metal for TYPO3 Server Team
+Showcase chef-provisioning for TYPO3 Server Team
 ==========================================
 
 t3stacks is an effort to provide a generic runtime
@@ -24,6 +24,14 @@ Requirements
 * virtualbox (recent!)
 * vagrant (recent!)
 * ruby with rake and bundler (recent version, Mac OS system ruby is NOT sufficient, rvm is known to be troublesome)
+
+Tip
+-----------------------------------------
+
+vagrant plugin install vagrant-proxyconf
+export VAGRANT_HTTP_PROXY="http://proxy.example.com:8080"
+export VAGRANT_HTTPS_PROXY="http://proxy.example.com:8080"
+
 
 Quickstart
 -----------------------------------------

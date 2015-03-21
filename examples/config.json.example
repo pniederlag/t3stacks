@@ -4,7 +4,7 @@
     "builddocs": {
       "hostname": "build.docs.typo3.vagrant",
       "ipaddress": "10.4.17.9",
-      "run_list": ["site-docstypo3org"],
+      "run_list": ["site-builddocstypo3org"],
       "attributes": {
       }
     },
@@ -22,7 +22,7 @@
       "attributes": {
         "redmine" : {
           "source": {
-            "reference": "1.4-stable"
+            "reference": "3.0-stable"
           }
         }
       }
