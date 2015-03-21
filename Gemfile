@@ -1,11 +1,9 @@
 source 'https://rubygems.org'
 
-gem 'chef', '~>11.14.6'
-gem 'chef-vault'
-gem 'chef-metal', '~>0.14.2'
-gem 'chef-metal-vagrant', :github => 'opscode/chef-metal-vagrant'
-gem 'berkshelf', '~>3.1.5'
-gem 'cheffish',           :github => 'opscode/cheffish'
+gem 'chef-provisioning', github: "chef/chef-provisioning", tag: "v0.19"
+gem 'chef-provisioning-vagrant'
+gem 'chef-provisioning-docker'
+gem 'berkshelf', '~>3.2.3'
 
 # Uncomment these lines if you want to live on the Edge:
 #
