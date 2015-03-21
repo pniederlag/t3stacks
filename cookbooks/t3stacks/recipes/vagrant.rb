@@ -1,5 +1,5 @@
 require 'cheffish'
-require 'chef_metal_vagrant'
+require 'chef/provisioning/vagrant_driver'
 
 
 vms_dir = node['t3stacks']['vms_dir']
