@@ -18,9 +18,9 @@ cookbook 'site-forgetypo3org', github: 'TYPO3-Cookbooks/site-forgetypo3org', bra
 cookbook 'site-builddocstypo3org', github: 'TYPO3-Cookbooks/site-builddocstypo3org', branch: 'master'
 cookbook 'site-mqtypo3org', github: 'TYPO3-Cookbooks/site-mqtypo3org', branch: 'master'
 
-group :private do
-    cookbook 't3-gerrit', git: 'ssh://review.typo3.org/Teams/Server/Chef.git', branch: 'master', rel: 'site-cookbooks/t3-gerrit', group: 'private'
-    cookbook 't3-gitweb', git: 'ssh://review.typo3.org/Teams/Server/Chef.git', branch: 'master', rel: 'site-cookbooks/t3-gitweb', group: 'private'
-    cookbook 'site-reviewtypo3org', github: 'TYPO3-Cookbooks/site-reviewtypo3org', branch: 'develop'
-    cookbook 'site-gittypo3org', github: 'TYPO3-Cookbooks/site-gittypo3org'
-end
+#group :private do
+#    cookbook 't3-gerrit', git: 'ssh://review.typo3.org/Teams/Server/Chef.git', branch: 'master', rel: 'site-cookbooks/t3-gerrit', group: 'private'
+#    cookbook 't3-gitweb', git: 'ssh://review.typo3.org/Teams/Server/Chef.git', branch: 'master', rel: 'site-cookbooks/t3-gitweb', group: 'private'
+#    cookbook 'site-reviewtypo3org', github: 'TYPO3-Cookbooks/site-reviewtypo3org', branch: 'develop'
+#    cookbook 'site-gittypo3org', github: 'TYPO3-Cookbooks/site-gittypo3org'
+#end
