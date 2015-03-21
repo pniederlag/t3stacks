@@ -11,11 +11,13 @@ def get_config
   JSON.parse(File.read('config.json'))
 end
 
+# default task, first init and then provision with chef-client
 desc '[DEFAULT] startup virtual machines and provision them (includes init)'
 task :provision => [:init] do
   system("#{t3stacks_dir}/bin/chef-client -z -o t3stacks::default,t3stacks::fixation")
 end
 
+# init task, setup keys, create cache dir, handle bundle and berks
 desc 'basic setup and system check'
 task :init => [:keygen, :cachedir, :config_copy, :bundle, :berks_install] do
   create_users_directory
