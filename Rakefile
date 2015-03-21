@@ -19,7 +19,7 @@ end
 
 # init task, setup keys, create cache dir, handle bundle and berks
 desc 'basic setup and system check'
-task :init => [:keygen, :cachedir, :config_copy, :bundle, :berks_install] do
+task :init => [:keygen, :config_copy, :bundle, :berks_install] do
   create_users_directory
 end
 
@@ -55,16 +55,6 @@ task :keygen do
   if Dir["#{keydir}/*"].empty?
     system("ssh-keygen -t rsa -P '' -q -f #{keydir}/id_rsa")
   end
-end
-
-task :cachedir do
-  if ENV['CACHE_PATH'] && Dir.exists?(ENV['CACHE_PATH'])
-    cachedir = ENV['CACHE_PATH']
-  else
-    cachedir = File.join(t3stacks_dir, 'cache')
-    Dir.mkdir cachedir unless Dir.exists?(cachedir)
-  end
-  puts "Using package cache directory #{cachedir}"
 end
 
 #desc 'Install required Gems into the vendor/bundle directory'
