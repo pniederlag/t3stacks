@@ -1,4 +1,4 @@
-Showcase chef-metal for TYPO3 Server Team
+Showcase chef-provisioning for TYPO3 Server Team
 ==========================================
 
 t3stacks is an effort to provide a generic runtime
