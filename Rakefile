@@ -41,13 +41,6 @@ end
   end
 end
 
-desc 'update cookbooks by deleting vendor/cookbooks and Berksfile.lock'
-task :update_cb do
-  cookbooks_path = File.join(t3stacks_dir, 'vendor/cookbooks')
-  system("rm -rf #{cookbooks_path} Berksfile.lock")
-  system("#{t3stacks_dir}/bin/berks vendor #{cookbooks_path} --except private")
-end
-
 task :config_copy do
   config_file = File.join(t3stacks_dir, 'config.json')
   config_ex_file = File.join(t3stacks_dir, 'examples', 'config.json.example')
@@ -81,5 +74,7 @@ end
 
 task :berks_install do
   cookbooks_path = File.join(t3stacks_dir, 'vendor/cookbooks')
+  system("rm -rf #{cookbooks_path}")
+  system("rm -f #{t3stacks_dir}/Berksfile.lock")
   system("#{t3stacks_dir}/bin/berks vendor #{cookbooks_path}")
 end
