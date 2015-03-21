@@ -30,7 +30,11 @@ end
 
 # profiles for chef-metal
 #profile 'xxxefault'
-#profiles {
-#    'default' => {
-#    }
-#}
+profiles ({
+    'default' => {
+    },
+    'docker-default' => {
+      :driver => 'docker:',
+
+    }
+})

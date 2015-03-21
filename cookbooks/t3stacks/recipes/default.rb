@@ -5,7 +5,7 @@
 # Copyright (C) 2014
 #
 #
-require 'chef_metal'
+require 'chef/provisioning'
 
 #def chef_repo_path
 #   "/srv/fileserver/projekte/t3-team-server/chef/"

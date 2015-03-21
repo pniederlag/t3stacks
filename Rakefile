@@ -2,7 +2,7 @@ require 'json'
 require 'fileutils'
 Dir["lib/tasks/*.rake"].each { |t| load t }
 
-task :default => [:up]
+task :default => [:provision]
 
 # Environment variables to be consumed by ec-t3stacks and friends
 t3stacks_dir = ENV['T3STACKS_DIR'] = File.dirname(__FILE__)
@@ -11,17 +11,16 @@ def get_config
   JSON.parse(File.read('config.json'))
 end
 
-desc 'Install required Gems into the vendor/bundle directory'
-task :bundle do
-  system('bundle install --path vendor/bundle --binstubs')
+# default task, first init and then provision with chef-client
+desc '[DEFAULT] startup virtual machines and provision them (includes init)'
+task :provision => [:init] do
+  system("#{t3stacks_dir}/bin/chef-client -z -o t3stacks::default,t3stacks::fixation")
 end
 
-desc 'Bring the VMs online and install+configure Enterprise Chef HA'
-task :up => [:keygen, :cachedir, :config_copy, :bundle, :berks_recreate] do
+# init task, setup keys, create cache dir, handle bundle and berks
+desc 'basic setup and system check'
+task :init => [:keygen, :config_copy, :bundle, :berks_install] do
   create_users_directory
-  if system("#{t3stacks_dir}/bin/chef-client -z -o t3stacks::default,t3stacks::fixation")
-    Rake::Task['add_hosts'].execute
-  end
 end
 
 task :start => :up
@@ -32,19 +31,12 @@ task :destroy, [:machine] do |t,arg|
   #Rake::Task['remove_hosts'].execute
 end
 
-desc 'SSH to a machine like so: rake ssh[backend1]'
-task :ssh, [:machine] do |t,arg|
-  Dir.chdir(File.join(t3stacks_dir, 'vagrant_vms')) {
-    system("vagrant ssh #{arg.machine}")
-  }
-end
-
 # Vagrant standard but useful commands
-%w(status halt suspend resume).each do |command|
-  desc "Equivalent to running: vagrant #{command}"
-  task :"#{command}" do
+%w(status halt suspend resume ssh).each do |command|
+  desc "Equivalent to running: vagrant #{command} $machine"
+  task :"#{command}", [:machine] do |t,arg|
     Dir.chdir(File.join(t3stacks_dir, 'vagrant_vms')) {
-      system("vagrant #{command}")
+      system("vagrant #{command} #{arg.machine}")
     }
   end
 end
@@ -65,39 +57,14 @@ task :keygen do
   end
 end
 
-desc 'Add hosts entries to /etc/hosts'
-task :add_hosts do
-  config = get_config
-  puts "@todo: hosts/dns management"
-  #create_hosts_entries(config['machines'])
-  #print_final_message(config, t3stacks_dir)
-end
-
-desc 'Remove hosts entries to /etc/hosts'
-task :remove_hosts do
-  config = get_config
-  puts "@todo: hosts/dns management"
-  #remove_hosts_entries(config['machines'])
-end
-
-task :cachedir do
-  if ENV['CACHE_PATH'] && Dir.exists?(ENV['CACHE_PATH'])
-    cachedir = ENV['CACHE_PATH']
-  else
-    cachedir = File.join(t3stacks_dir, 'cache')
-    Dir.mkdir cachedir unless Dir.exists?(cachedir)
-  end
-  puts "Using package cache directory #{cachedir}"
+#desc 'Install required Gems into the vendor/bundle directory'
+task :bundle do
+  system('bundle install --path vendor/bundle --binstubs')
 end
 
 task :berks_install do
   cookbooks_path = File.join(t3stacks_dir, 'vendor/cookbooks')
-  system("#{t3stacks_dir}/bin/berks vendor #{cookbooks_path} --except private")
-end
-
-desc '[DANGER!] delete vendor/cookbooks and Berksfile.lock and rebuild [DANGER!]'
-task :berks_recreate do
-  cookbooks_path = File.join(t3stacks_dir, 'vendor/cookbooks')
-  system("rm -rf #{cookbooks_path} Berksfile.lock")
-  system("#{t3stacks_dir}/bin/berks vendor #{cookbooks_path} --except private")
+  system("rm -rf #{cookbooks_path}")
+  system("rm -f #{t3stacks_dir}/Berksfile.lock")
+  system("#{t3stacks_dir}/bin/berks vendor #{cookbooks_path}")
 end
